@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张智勇 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #495057;
+            --border-color: #dee2e6;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f5f7f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Layout */
+        .resume-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        /* Left Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        /* 修改照片区域尺寸 - 适配199*265像素照片 */
+        .profile-image {
+            width: 199px;
+            height: 265px;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 0.9rem;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .profile-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .profile-title {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list i {
+            margin-right: 12px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-title i {
+            margin-right: 10px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .skill-level {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-level-bar {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .languages-list {
+            list-style: none;
+        }
+        
+        .languages-list li {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 12px;
+            color: var(--secondary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: calc(100% - 8px);
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .timeline-date {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        
+        .timeline-subtitle {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .timeline-content {
+            color: var(--text-color);
+        }
+        
+        .timeline-content ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 6px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-description {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* Awards Section */
+        .awards-list {
+            list-style: none;
+        }
+        
+        .awards-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .awards-list i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .resume-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                margin: 20px auto;
+            }
+            
+            /* 在移动设备上调整照片尺寸 */
+            .profile-image {
+                width: 150px;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 25px;
+            }
+            
+            .sidebar {
+                padding: 25px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                margin-top: 5px;
+            }
+            
+            /* 在非常小的屏幕上进一步调整照片 */
+            .profile-image {
+                width: 120px;
+                height: 160px;
+            }
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-wrapper">
+            <!-- Left Sidebar -->
+            <div class="sidebar">
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="#" alt="张智勇" id="profile-photo" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span id="photo-placeholder">"H:\研二\最新\1.png"</span>
+                    </div>
+                    <h1 class="profile-name">张智勇</h1>
+                    <div class="profile-title">机械设计工程师 | 2026应届毕业生</div>
+                </div>
+                
+                <div class="contact-info">
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone"></i> 13077529264</li>
+                        <li><i class="fas fa-envelope"></i> 942710339@qq.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 广东云浮</li>
+                        <li><i class="fas fa-globe"></i> https://lifwen.github.io/</li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-graduation-cap"></i> 教育背景</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">机械工程 硕士</div>
+                            <div class="timeline-subtitle">武汉理工大学</div>
+                            <div class="timeline-date">2023.09 - 2026.06</div>
+                            <div class="timeline-content">
+                                GPA: 4.36/5.0 (前10%)<br>
+                                绿色智能江海直达船舶与邮轮游艇研究中心
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">船舶与海洋工程 本科</div>
+                            <div class="timeline-subtitle">广东海洋大学</div>
+                            <div class="timeline-date">2016.09 - 2022.06</div>
+                            <div class="timeline-content">
+                                GPA: 3.46/5.0 (前5%)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-code"></i> 专业技能</h3>
+                    <ul class="skills-list">
+                        <li>
+                            <div class="skill-name">
+                                <span>Rhino</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-level-bar" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="skill-name">
+                                <span>Auto CAD</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-level-bar" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="skill-name">
+                                <span>STAR-CCM+</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-level-bar" style="width: 88%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="skill-name">
+                                <span>ANSYS Fluent</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-level-bar" style="width: 92%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="skill-name">
+                                <span>计算流体力学</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-level-bar" style="width: 90%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-award"></i> 荣誉奖项</h3>
+                    <div class="badge">优秀研究生干部</div>
+                    <div class="badge">一等奖学金</div>
+                    <div class="badge">国家励志奖学金</div>
+                    <div class="badge">校三好学生</div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- About Section -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-user"></i> 个人简介</h2>
+                    <p>武汉理工大学机械工程专业硕士研究生，研究方向为计算流体力学和跨介质航行器。具备扎实的学术基础和较强的科研能力，硕士期间参与多项课题项目，发表4篇学术论文（包括上海交大学报、工程力学等），申请发明专利1项。</p>
+                    <p>熟练掌握Rhino、Auto CAD、STAR-CCM+、Fluent等专业软件，期待将学术积累与实践经验相结合，为贵公司创造价值。</p>
+                </section>
+                
+                <!-- Experience Section -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> 工作经历</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">SQE 供应商质量工程师</div>
+                                <div class="timeline-date">2023.05 - 2023.08</div>
+                            </div>
+                            <div class="timeline-subtitle">TCL 德龙 (中山) 家电有限公司</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>负责塑料件和管路件来料质量的管控，对接供应商确保来料质量，对供应商进行定期考核</li>
+                                    <li>针对塑料件来料不良问题，督促相关供应商对生产工艺进行优化整改，次月塑料件来料不良率下降10%，获部门内部表彰</li>
+                                    <li>对标行业内龙头企业《供应商质量保证协议》中的相关条款，对公司协议进行了修订</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Projects Section -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-project-diagram"></i> 科研项目</h2>
+                    
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-water"></i> 跨介质航行器仿生设计</h3>
+                            <div class="project-description">
+                                省部级项目，设计了一款跨介质航行器，样机试验表明该设计方案可显著提高航行器反复跨介质能力。
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">计算流体力学</span>
+                                <span class="skill-tag">仿生设计</span>
+                                <span class="skill-tag">样机试验</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-ship"></i> 某试验样机研制</h3>
+                            <div class="project-description">
+                                军工项目，设计了一款新型无人艇，对无人艇流体动力性能和结构强度进行了论证，并跟进生产制造。
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">无人艇设计</span>
+                                <span class="skill-tag">流体动力</span>
+                                <span class="skill-tag">结构强度</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-cogs"></i> 某底盘方案设计</h3>
+                            <div class="project-description">
+                                军工项目，设计了一款新型无人艇，对无人艇流体动力性能进行了仿真及试验论证，并撰写发明专利。
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">Rhino</span>
+                                <span class="skill-tag">STAR-CCM+</span>
+                                <span class="skill-tag">Fluent</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Publications Section -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-file-alt"></i> 学术成果</h2>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>发表论文4篇（包括上海交大学报、工程力学、中国舰船研究等）</li>
+                            <li>申请发明专利1项（跨介质航行器设计领域）</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Campus Experience Section -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-university"></i> 校园经历</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">院创新实践中心部门副主任</div>
+                                <div class="timeline-date">2023.09 - 2025.09</div>
+                            </div>
+                            <div class="timeline-content">
+                                负责院创新实践中心学术创新相关活动开展，如研究生能源装备创新设计大赛、武汉地区船海论坛等。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 25px; color: var(--primary-color);">竞赛获奖</h3>
+                    <ul class="awards-list">
+                        <li><i class="fas fa-trophy"></i> 第十四届全国海洋航行器设计与制作大赛南海赛区一等奖</li>
+                        <li><i class="fas fa-trophy"></i> 武汉理工大学第四届"创未来"研究生创新创业大赛二等奖</li>
+                        <li><i class="fas fa-trophy"></i> 武汉理工大学第三届研究生"双碳"创新与创意大赛二等奖</li>
+                        <li><i class="fas fa-trophy"></i> 武汉理工大学研究生未来飞行器创新大赛三等奖</li>
+                        <li><i class="fas fa-trophy"></i> 第十一届计算机信息素养大赛校赛二等奖</li>
+                        <li><i class="fas fa-trophy"></i> 第八届"东方财富杯"全国大学生金融挑战赛省赛一等奖</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 张智勇 - 个人简历</p>
+        </div>
+    </footer>
+
+    <script>
+        // 照片上传功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const profilePhoto = document.getElementById('profile-photo');
+            const photoPlaceholder = document.getElementById('photo-placeholder');
+            
+            // 点击照片区域可以上传新照片
+            document.querySelector('.profile-image').addEventListener('click', function() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                
+                input.onchange = function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            profilePhoto.src = e.target.result;
+                            profilePhoto.style.display = 'block';
+                            photoPlaceholder.style.display = 'none';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                };
+                
+                input.click();
+            });
+        });
+    </script>
+</body>
+</html>
